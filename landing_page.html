@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <link rel="stylesheet" href="public/styles/common.css">
+    <link rel="stylesheet" href="public/styles/landing_page.css">
+    <style>
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .welcome-message {
+            font-size: 2rem;
+            color: #007bff;
+            animation: fadeOut 3s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-message">WELCOME TO RSET EVENT MANAGEMENT</div>
+        <h2>Upcoming Events</h2>
+        <div class="navigation">
+            <a href="login.html" class="nav-button">Student Login</a>
+            <a href="admin_login.html" class="nav-button">Admin Dashboard</a>
+        </div>
+
+        <h3>Events for Tomorrow</h3>
+        <ul class="event-list">
+            <li class="event-item">
+                <div class="event-info">
+                    <h4>Event Name: Sports Day</h4>
+                    <p>Date: 2024-10-27</p>
+                    <p>Time: 10:00 AM</p>
+                    <p>Venue: College Grounds</p>
+                </div>
+                <div class="event-actions">
+                    <a href="login.html">Book Ticket</a>
+                </div>
+            </li>
+        </ul>
+
+        <h3>Upcoming Events This Week</h3>
+        <ul class="event-list">
+            <li class="event-item">
+                <div class="event-info">
+                    <h4>Event Name: Annual Day</h4>
+                    <p>Date: 2024-10-30</p>
+                    <p>Time: 6:00 PM</p>
+                    <p>Venue: Main Auditorium</p>
+                </div>
+                <div class="event-actions">
+                    <a href="login.html">Book Ticket</a>
+                </div>
+            </li>
+            <li class="event-item">
+                <div class="event-info">
+                    <h4>Event Name: Cultural Fest</h4>
+                    <p>Date: 2024-10-27</p>
+                    <p>Time: 4:00 PM</p>
+                    <p>Venue: Auditorium</p>
+                </div>
+                <div class="event-actions">
+                    <a href="login.html">Book Ticket</a>
+                </div>
+            </li>
+            <li class="event-item">
+                <div class="event-info">
+                    <h4>Event Name: Workshop on AI</h4>
+                    <p>Date: 2024-10-27</p>
+                    <p>Time: 2:00 PM</p>
+                    <p>Venue: Room 101</p>
+                </div>
+                <div class="event-actions">
+                    <a href="login.html">Book Ticket</a>
+                </div>
+            </li>
+            <li class="event-item">
+                <div class="event-info">
+                    <h4>Event Name: Guest Lecture on Cybersecurity</h4>
+                    <p>Date: 2024-10-31</p>
+                    <p>Time: 10:00 AM</p>
+                    <p>Venue: Conference Hall</p>
+                </div>
+                <div class="event-actions">
+                    <a href="login.html">Book Ticket</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

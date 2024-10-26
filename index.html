@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Event Registration</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Admin Dashboard - Event Registration</h2>
+        <button onclick="window.location.href='login.html'" class="logout-button">Logout</button>
+        
+        <form id="event-registration-form">
+            <div class="input-group">
+                <label for="event-name">Event Name</label>
+                <input type="text" id="event-name" name="event-name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="event-venue">Select Venue</label>
+                <select id="event-venue" name="event-venue" required>
+                    <option value="" disabled selected>Select a venue</option>
+                    <option value="Auditorium">Auditorium</option>
+                    <option value="Conference Room A">Conference Room A</option>
+                    <option value="Conference Room B">Conference Room B</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="event-date">Event Date</label>
+                <input type="date" id="event-date" name="event-date" required>
+            </div>
+
+            <div class="input-group">
+                <label for="event-time">Select Time Slot</label>
+                <select id="event-time" name="event-time" required>
+                    <option value="" disabled selected>Select a time slot</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-button">Register Event</button>
+        </form>
+
+        <div id="availability-message" class="availability-message"></div>
+    </div>
+
+    <script>
+        const eventDateInput = document.getElementById('event-date');
+        const venueSelect = document.getElementById('event-venue');
+        const timeSlotSelect = document.getElementById('event-time');
+        const availabilityMessage = document.getElementById('availability-message');
+
+        // Example available time slots
+        const availableTimeSlots = {
+            "Auditorium": ["9:00 AM - 10:00 AM", "10:30 AM - 11:30 AM", "1:00 PM - 2:00 PM"],
+            "Conference Room A": ["9:00 AM - 10:00 AM", "11:00 AM - 12:00 PM"],
+            "Conference Room B": ["10:00 AM - 11:00 AM", "2:00 PM - 3:00 PM"]
+        };
+
+        // Event listener for venue selection
+        venueSelect.addEventListener('change', function() {
+            updateAvailableTimeSlots();
+        });
+
+        // Event listener for event date selection
+        eventDateInput.addEventListener('change', function() {
+            updateAvailableTimeSlots();
+        });
+
+        function updateAvailableTimeSlots() {
+            const selectedVenue = venueSelect.value;
+            const selectedDate = eventDateInput.value;
+
+            // Clear previous time slots
+            timeSlotSelect.innerHTML = '<option value="" disabled selected>Select a time slot</option>';
+
+            if (selectedVenue && selectedDate) {
+                const timeSlots = availableTimeSlots[selectedVenue];
+                
+                if (timeSlots) {
+                    timeSlots.forEach(time => {
+                        const option = document.createElement('option');
+                        option.value = time;
+                        option.textContent = time;
+                        timeSlotSelect.appendChild(option);
+                    });
+                }
+
+                availabilityMessage.textContent = `Available time slots for ${selectedVenue} on ${selectedDate}:`;
+            } else {
+                availabilityMessage.textContent = '';
+            }
+        }
+
+        // Handle form submission
+        eventRegistrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Event registered successfully!");
+            // Here you can add code to submit the form data to your backend
+        });
+    </script>
+</body>
+</html>

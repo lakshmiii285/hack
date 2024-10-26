@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="public/styles/common.css">
+    <link rel="stylesheet" href="public/styles/admin_dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, Admin</h2>
+        <form action="/host_event" method="POST">
+            <input type="text" name="event_name" placeholder="Event Name" required>
+            <input type="datetime-local" name="event_date" required>
+            <select name="venue" required>
+                <option value="">Select Venue</option>
+                <option value="Auditorium">Auditorium</option>
+                <option value="Conference Hall">Conference Hall</option>
+            </select>
+            <button type="submit">Host Event</button>
+        </form>
+
+        <h2>Upcoming Events</h2>
+        <ul>
+            <li>Event 1 - <a href="#"><i class="fas fa-edit"></i> Edit</a></li>
+            <li>Event 2 - <a href="#"><i class="fas fa-edit"></i> Edit</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+

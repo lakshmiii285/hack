@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="public/styles/common.css">
+    <link rel="stylesheet" href="public/styles/login.css">
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Sample credentials for demonstration
+            const email = document.getElementById("student-email").value;
+            const password = document.getElementById("student-password").value;
+
+            // Simple authentication check (use a real backend in production)
+            if (email === "student@rset.edu" && password === "student123") {
+                window.location.href = "student_events.html"; // Redirect to events page
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Login</h2>
+        <form onsubmit="handleLogin(event)">
+            <label for="student-email">Email:</label>
+            <input type="email" id="student-email" name="student-email" required>
+            <label for="student-password">Password:</label>
+            <input type="password" id="student-password" name="student-password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+
